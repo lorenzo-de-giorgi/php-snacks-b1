@@ -1,15 +1,5 @@
 <?php
     /*
-        !SNACK 1
-        *Creiamo un array contenente le partite di basket di un’ipotetica tappa del calendario. 
-        *Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa e punti fatti dalla squadra ospite. Stampiamo a schermo tutte le partite con questo schema:
-        *Olimpia Milano - Cantù | 55-60
-
-        !SNACK 2
-        *Con un form passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione) che name sia più lungo di 3 caratteri,
-        *che mail contenga un punto e una chiocciola e che age sia un numero. 
-        *Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
-
         !SNACK 3
         *Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. 
         *Stampare ogni data con i relativi post.
@@ -27,6 +17,41 @@
         !SNACK 7
         *Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. 
         *Stampare Nome, Cognome e la media dei voti di ogni alunno.
+    */
+
+    //! SNACK 1
+    /*
+        *Creiamo un array contenente le partite di basket di un’ipotetica tappa del calendario. 
+        *Ogni array avrà una squadra di casa e una squadra ospite, punti fatti dalla squadra di casa e punti fatti dalla squadra ospite. Stampiamo a schermo tutte le partite con questo schema:
+        *Olimpia Milano - Cantù | 55-60
+    */
+
+    $matches = [
+        [
+            "squadra_casa" => "Los Angeles Lakers",
+            "squadra_ospite" => "Golden State Warriors",
+            "punti_casa" => 110,
+            "punti_ospite" => 105
+        ],
+        [
+            "squadra_casa" => "Brooklyn Nets",
+            "squadra_ospite" => "Boston Celtics",
+            "punti_casa" => 118,
+            "punti_ospite" => 112
+        ],
+        [
+            "squadra_casa" => "Chicago Bulls",
+            "squadra_ospite" => "Miami Heat",
+            "punti_casa" => 98,
+            "punti_ospite" => 95
+        ]
+    ];
+
+    //! SNACK 2
+    /*
+        *Con un form passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione) che name sia più lungo di 3 caratteri,
+        *che mail contenga un punto e una chiocciola e che age sia un numero. 
+        *Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
     */
 ?>
 
@@ -49,6 +74,13 @@
 </head>
 <body>
     <div class="container">
+        <!-- SNACK 1 -->
+        <h3>Snack 1</h3>
+        <?php
+            foreach($matches as $match){
+                echo $match["squadra_casa"] . " - " . $match["squadra_ospite"] . " | " . $match["punti_casa"] . " - " . $match["punti_ospite"] . "<br>";
+            }
+        ?>
     </div>
 </body>
 </html>
