@@ -53,11 +53,6 @@
         *che mail contenga un punto e una chiocciola e che age sia un numero. 
         *Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
     */
-    
-    $name = $_GET["name"];
-    $mail = $_GET["mail"];
-    $age = $_GET["age"];
-    
 ?>
 
 <!DOCTYPE html>
@@ -89,18 +84,27 @@
         <!-- SNACK 2 -->
         <h3>Snack 2</h3>
         <form action="index.php" method="GET">
-            <input type="text" name="name" placeholder="Name">
-            <input type="text" name="mail" placeholder="Mail">
+            <input type="text" name="nome" placeholder="Name">
+            <input type="text" name="email" placeholder="Mail">
             <input type="text" name="age" placeholder="Age">
             <button type="submit">Invia</button>
         </form>
         <?php
-            if (strlen($name) > 3 && str_contains($mail, "@")&& str_contains($mail, ".") && is_numeric($age) ) {
-                echo 'Accesso riuscito con la seguente mail: ' . $user_email;
+            if (empty($_GET['nome'])) {
+                echo 'Riempi tutti gli input!';
             } else {
-                echo 'Accesso Negato';
+                $nome = $_GET['nome'];
+                $email = $_GET['email'];
+                $age = $_GET['age'];
+                if(strlen($nome) > 3 && str_contains($email, "@")&& str_contains($email, ".") && is_numeric($age)){
+                    echo 'Ciao ' . $nome. ' ' . 'Accesso eseguito con la seguente mail: ' . $email;
+                } else {
+                    echo 'Accesso Negato';
+                }
             }
         ?>
+        <!-- SNACK 3 -->
+        <h3>Snack 3</h3>
     </div>
 </body>
 </html>
