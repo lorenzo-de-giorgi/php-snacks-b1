@@ -1,14 +1,4 @@
 <?php
-    /*
-
-        !SNACK 6
-        *Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
-
-        !SNACK 7
-        *Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. 
-        *Stampare Nome, Cognome e la media dei voti di ogni alunno.
-    */
-
     //! SNACK 1
     /*
         *Creiamo un array contenente le partite di basket di un’ipotetica tappa del calendario. 
@@ -112,6 +102,64 @@
     $paragraph = "La tecnologia ha trasformato radicalmente la nostra vita quotidiana. Grazie alla connettività globale, siamo in grado di comunicare istantaneamente con persone in tutto il mondo.";
 
     $small_paragraph = explode('.', $paragraph);
+
+    //! SNACK 6
+    /*
+        *Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
+    */
+
+    $db = [
+        'teachers' => [
+            [
+                'name' => 'Michele',
+                'lastname' => 'Papagni'
+            ],
+            [
+                'name' => 'Fabio',
+                'lastname' => 'Forghieri'
+            ]
+        ],
+        'pm' => [
+            [
+                'name' => 'Roberto',
+                'lastname' => 'Marazzini'
+            ],
+            [
+                'name' => 'Federico',
+                'lastname' => 'Pellegrini'
+            ]
+        ]
+    ];
+
+    //! SNACK 7
+    /*
+        *Creare un array contenente qualche alunno di un’ipotetica classe. Ogni alunno avrà Nome, Cognome e un array contenente i suoi voti scolastici. 
+        *Stampare Nome, Cognome e la media dei voti di ogni alunno.
+    */
+
+    $students = [
+        [
+            "name" => "Mario",
+            "surname" => "Rossi",
+            "marks" => [8, 7, 6, 8, 9]
+        ],
+        [
+            "name" => "Giulia",
+            "surname" => "Verdi",
+            "marks" => [7, 8, 9, 6, 8]
+        ],
+        [
+            "name" => "Luca",
+            "surname" => "Bianchi",
+            "marks" => [9, 8, 7, 8, 9]
+        ]
+    ];
+
+    function mediaVoti($marks){
+        $total = array_sum($marks);
+        $total_marks = count($marks);
+        return $total / $total_marks;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -128,7 +176,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- css -->
-    <script src="css/style.css"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>PHP Snack</title>
 </head>
 <body>
@@ -184,6 +232,32 @@
         <?php
             foreach($small_paragraph as $frase){
                 echo $frase . "<br>";
+            }
+        ?>
+        <!-- SNACK 6 -->
+        <h3>Snack 6</h3>
+        <div class="gray">
+            <h3>Teachers</h3>
+            <?php
+                foreach ($db["teachers"] as $teacher) {
+                    echo $teacher['name'] . ' ' . $teacher['lastname'] . '<br>';
+                }
+            ?>
+        </div>
+        <div class="green">
+            <h3>PM</h3>
+            <?php
+                foreach ($db["pm"] as $p) {
+                    echo $p['name'] . ' ' . $p['lastname'] . '<br>';
+                }
+            ?>
+        </div>
+        <!-- SNACK 7 -->
+        <h3>Snack 7</h3>
+        <?php
+            foreach($students as $student){
+                $marks_average = mediaVoti($student['marks']);
+                echo "Nome: " . $student['name'] . ' ' . "Cognome: " . $student['surname'] . ' ' . "Media Voti: " . $marks_average . "<br>";
             }
         ?>
     </div>
