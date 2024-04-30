@@ -96,7 +96,16 @@
     //! SNACK 4
     /*
         *Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
-    */
+    */    
+
+    $rndNums = [];
+
+    while (count($rndNums) < 15) {
+        do {
+            $rndNum = rand(0, 100);
+        } while (in_array($rndNum, $rndNums));
+        $rndNums[] = $rndNum;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -158,6 +167,11 @@
             }
         ?>
         <!-- SNACK 4 -->
+        <h3>Snack 4</h3>
+        <p>I 15 numeri sono:</p>
+        <?php for ($i = 0; $i < count($rndNums); $i++) { ?>
+            <?php echo $rndNums[$i] . ',' ?>
+        <?php } ?>
     </div>
 </body>
 </html>
