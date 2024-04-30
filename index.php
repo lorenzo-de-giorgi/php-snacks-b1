@@ -53,6 +53,11 @@
         *che mail contenga un punto e una chiocciola e che age sia un numero. 
         *Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
     */
+    
+    $name = $_GET["name"];
+    $mail = $_GET["mail"];
+    $age = $_GET["age"];
+    
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +84,21 @@
         <?php
             foreach($matches as $match){
                 echo $match["squadra_casa"] . " - " . $match["squadra_ospite"] . " | " . $match["punti_casa"] . " - " . $match["punti_ospite"] . "<br>";
+            }
+        ?>
+        <!-- SNACK 2 -->
+        <h3>Snack 2</h3>
+        <form action="index.php" method="GET">
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="mail" placeholder="Mail">
+            <input type="text" name="age" placeholder="Age">
+            <button type="submit">Invia</button>
+        </form>
+        <?php
+            if (strlen($name) > 3 && str_contains($mail, "@")&& str_contains($mail, ".") && is_numeric($age) ) {
+                echo 'Accesso riuscito con la seguente mail: ' . $user_email;
+            } else {
+                echo 'Accesso Negato';
             }
         ?>
     </div>
