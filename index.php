@@ -1,13 +1,5 @@
 <?php
     /*
-        !SNACK 3
-        *Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. 
-        *Stampare ogni data con i relativi post.
-        *Qui l’array di esempio: https://www.codepile.net/pile/R2K5d68z
-
-        !SNACK 4
-        *Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
-
         !SNACK 5
         *Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
 
@@ -52,6 +44,58 @@
         *Con un form passare come parametri GET name, mail e age e verificare (cercando i metodi che non conosciamo nella documentazione) che name sia più lungo di 3 caratteri,
         *che mail contenga un punto e una chiocciola e che age sia un numero. 
         *Se tutto è ok stampare “Accesso riuscito”, altrimenti “Accesso negato”
+    */
+
+    //! SNACK 3
+    /*
+        *Creare un array di array. Ogni array figlio avrà come chiave una data in questo formato: DD-MM-YYYY es 01-01-2007 e come valore un array di post associati a quella data. 
+        *Stampare ogni data con i relativi post.
+        *Qui l’array di esempio: https://www.codepile.net/pile/R2K5d68z
+    */
+
+    $posts = [
+
+        '10/01/2019' => [
+            [
+                'title' => 'Post 1',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 1'
+            ],
+            [
+                'title' => 'Post 2',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 2'
+            ],
+        ],
+        '10/02/2019' => [
+            [
+                'title' => 'Post 3',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 3'
+            ]
+        ],
+        '15/05/2019' => [
+            [
+                'title' => 'Post 4',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 4'
+            ],
+            [
+                'title' => 'Post 5',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 5'
+            ],
+            [
+                'title' => 'Post 6',
+                'author' => 'Michele Papagni',
+                'text' => 'Testo post 6'
+            ]
+        ],
+    ];
+
+    //! SNACK 4
+    /*
+        *Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
     */
 ?>
 
@@ -105,6 +149,15 @@
         ?>
         <!-- SNACK 3 -->
         <h3>Snack 3</h3>
+        <?php
+            foreach($posts as $data => $array){
+                echo "<b>Data: " . $data . "</b><br>";
+                foreach($array as $post){
+                    echo "Titolo: " . $post['title'] . "<br>" . "Autore: " . $post['author'] . "<br>" . "Testo: " . $post['text'] . "<br>";
+                }
+            }
+        ?>
+        <!-- SNACK 4 -->
     </div>
 </body>
 </html>
