@@ -1,7 +1,5 @@
 <?php
     /*
-        !SNACK 5
-        *Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
 
         !SNACK 6
         *Utilizzare questo array: https://pastebin.com/CkX3680A. Stampiamo il nostro array mettendo gli insegnanti in un rettangolo grigio e i PM in un rettangolo verde.
@@ -106,6 +104,14 @@
         } while (in_array($rndNum, $rndNums));
         $rndNums[] = $rndNum;
     }
+
+    //! SNACK 5
+    /*
+        *Prendere un paragrafo abbastanza lungo, contenente diverse frasi. Prendere il paragrafo e suddividerlo in tanti paragrafi. Ogni punto un nuovo paragrafo.
+    */
+    $paragraph = "La tecnologia ha trasformato radicalmente la nostra vita quotidiana. Grazie alla connettività globale, siamo in grado di comunicare istantaneamente con persone in tutto il mondo.";
+
+    $small_paragraph = explode('.', $paragraph);
 ?>
 
 <!DOCTYPE html>
@@ -172,6 +178,14 @@
         <?php for ($i = 0; $i < count($rndNums); $i++) { ?>
             <?php echo $rndNums[$i] . ',' ?>
         <?php } ?>
+
+        <!-- SNACK 5 -->
+        <h3>Snack 5</h3>
+        <?php
+            foreach($small_paragraph as $frase){
+                echo $frase . "<br>";
+            }
+        ?>
     </div>
 </body>
 </html>
